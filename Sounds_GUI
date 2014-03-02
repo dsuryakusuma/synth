@@ -1,0 +1,100 @@
+import tkinter as tk
+from tkinter import *
+ 
+class Application(tk.Frame):
+    def __init__(self, master=None, bg="azure"):
+        tk.Frame.__init__(self, master)
+        self.pack()
+        self.createWidgets()
+ 
+    def createWidgets(self):
+        # FIRST BLOCK - Sine Wave
+        self.block1 = tk.Button(self)
+        self.block1["bg"] = "blue"
+        self.block1["text"] = "Block 1" # GUI with text
+        self.block1["command"] = self.func1 # resulting in command
+        # self.bloc1.pack(side="top")
+
+
+        # SECOND BLOCK - Square Wave
+        self.block2 = tk.Button(self)
+        self.block2["text"] = "Square Wave Source"
+        self.block2["command"] = self.func2
+        # self.block2.pack(side="left")
+ 
+
+        # THIRD BLOCK - Adder
+        self.block3 = tk.Button(self)
+        self.block3["text"] = "Adder"
+        self.block3["command"] = self.func2
+
+
+        # FOURTH BLOCK - Multiplier
+        self.block4 = tk.Button(self)
+        self.block4["text"] = "Multiplier"
+        self.block4["command"] = self.func2
+
+
+
+        self.RUN = tk.Button(self, text="RUN SIMULATION", fg="azure")
+        self.QUIT = tk.Button(self, text="QUIT", fg="red",
+                                            command=root.destroy)
+        # self.QUIT.pack(side="bottom")
+ 
+    def func1(self):
+        print("func1")
+        # do something
+ 
+    def func2(self):
+        print("func2")
+        # do something
+
+    def func3(self):
+        print("func3")
+        # do something
+
+    def func4(self):
+        print("func4")
+        # do something
+
+root = tk.Tk()
+root.title('SoundBlaster 9000')
+
+# FREQUENCY
+var = StringVar()
+label = Label( root, textvariable=var, relief=RAISED )
+var.set("Set Frequency:")
+label.pack()
+w = Scale(root, from_=700, to=1200, orient=HORIZONTAL)
+w.pack()
+
+
+# VARIABLE 2
+var2 = StringVar()
+label2 = Label( root, textvariable=var2, relief=RAISED )
+var2.set("This controls variable 2:")
+label2.pack()
+w2 = Scale(root, from_=0, to=200, orient=HORIZONTAL)
+w2.pack()
+
+
+# READ SLIDER VALUES; query the slider
+Var1VALUE = w.get()
+Var2VALUE = w2.get()
+
+
+
+# "APPLICATION"
+
+
+
+
+# root.geometry('700x500+150+200')
+app = Application(master=root) # attaches the Application blocks/widgets
+print(Curr_Freq)
+
+
+
+# retain loop -- is this needed on Linux?
+mainloop()
+
